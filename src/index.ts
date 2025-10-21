@@ -11,7 +11,6 @@ import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-co
 dotenv.config();
 
 const startServer = async () => {
-    connectDB();
 
     const app = express();
     app.use(cors());
