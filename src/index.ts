@@ -36,15 +36,17 @@ const startServer = async () => {
 
     const PORT = process.env.PORT || 4000;
 
-    mongoose.connect(process.env.MONGO_URI!)
-    .then(() => {
-        console.log("MongoDB connected");
-        app.listen(PORT, () => {
-            console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`);
-            console.log(`GraphiQL UI available at http://localhost:${PORT}/graphiql`);
-        });
-    })
-    .catch(err => console.error("MongoDB connection error:", err));
+    app.listen(PORT, async () => {
+        console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+        console.log(`GraphiQL UL available at http://localhost:${PORT}/graphiql`);
+
+        try {
+            await mongoose.connect(process.env.MONGO_URI!);
+            console.log("MongoDB connected");
+        } catch (err) {
+            console.error("MongoDB connection error:", err);
+        }
+    });
 };
 
 startServer();
