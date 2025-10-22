@@ -1,0 +1,63 @@
+### Localhost - GET all crews
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+    "query": "query { crews { id name role active } }"
+}
+
+### Localhost - CREATE crew member
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+    "query": "mutation { createCrew(name: \"Jordan\", role: \"Foreman\", active: true) { id name role active } }"
+}
+
+### Localhost - UPDATE crew member
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+    "query": "mutation { updateCrew(id: \"68f96556c07c3e65022fec33\", role: \"Laborer\", active: false) { id name role active } }"
+}
+
+### Localhost - DELETE crew member
+POST http://localhost:4000/graphql
+Content-Type: application/json
+
+{
+    "query": "mutation { deleteCrew(id: \"68f96556c07c3e65022fec33\") }"
+}
+
+### Render - GET all crews
+POST https://buildops-backend.onrender.com/graphql
+Content-Type: application/json
+
+{
+    "query": "query { crews { id name role active } }"
+}
+
+### Render - CREATE crew member
+POST https://buildops-backend.onrender.com/graphql
+Content-Type: application/json
+
+{
+    "query": "mutation { createCrew(name: \"Jordan\", role: \"Foreman\", active: true) { id name role active } }"
+}
+
+### Render - UPDATE crew member
+POST https://buildops-backend.onrender.com/graphql
+Content-Type: application/json
+
+{
+    "query": "mutation { updateCrew(id: \"68f967f5af8a34a5029cf824\", role: \"Laborer\", active: false) { id name role active } }"
+}
+
+### Render - DELETE crew member
+POST https://buildops-backend.onrender.com/graphql
+Content-Type: application/json
+
+{
+    "query": "mutation { deleteCrew(id: \"68f967f5af8a34a5029cf824\") }"
+}
